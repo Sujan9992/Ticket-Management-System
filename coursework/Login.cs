@@ -76,7 +76,7 @@ namespace coursework
                 {
                     if ((String)admin[usernameText.Text] == passwordText.Text)
                     {
-                        Form adminUI = new Form2(usernameText.Text);
+                        Form adminUI = new AdminDashboard(usernameText.Text);
                         adminUI.Show();
                         this.Hide();
                     }
@@ -92,7 +92,7 @@ namespace coursework
                 {
                     if ((String)staff[usernameText.Text] == passwordText.Text)
                     {
-                        Form staffUI = new Form3(usernameText.Text);
+                        Form staffUI = new StaffDashBoard(usernameText.Text);
                         staffUI.Show();
                         this.Hide();
                     }

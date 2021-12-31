@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace coursework
 {
-    public partial class Form2 : Form
+    public partial class StaffDashBoard : Form
     {
-        public Form2(string strTextBox)
+        public StaffDashBoard(string strTextBox)
         {
             InitializeComponent();
             username.Text = strTextBox;
@@ -22,11 +22,6 @@ namespace coursework
         String confirmationMessage = "Are you sure you want to logout?";
 
         MessageBoxButtons btnType = MessageBoxButtons.YesNo;
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void welcomeText_Click(object sender, EventArgs e)
         {
@@ -42,6 +37,15 @@ namespace coursework
                 loginUI.Show();
                 this.Hide();
             }
+        }
+
+        private void customerViewButton_Click(object sender, EventArgs e)
+        {
+            CustomerDashBoard cs = new CustomerDashBoard();
+            panelShow.Controls.Clear();
+            cs.TopLevel = false;
+            panelShow.Controls.Add(cs);
+            cs.Show();
         }
     }
 }

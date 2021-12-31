@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace coursework
 {
-    public partial class Form3 : Form
+    public partial class AdminDashboard : Form
     {
-        public Form3(string strTextBox)
+        public AdminDashboard(string strTextBox)
         {
             InitializeComponent();
             username.Text = strTextBox;
@@ -22,6 +22,11 @@ namespace coursework
         String confirmationMessage = "Are you sure you want to logout?";
 
         MessageBoxButtons btnType = MessageBoxButtons.YesNo;
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void welcomeText_Click(object sender, EventArgs e)
         {
