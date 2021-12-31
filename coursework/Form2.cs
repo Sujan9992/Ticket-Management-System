@@ -12,14 +12,36 @@ namespace coursework
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        public Form2(string strTextBox)
         {
             InitializeComponent();
+            username.Text = strTextBox;
         }
+
+        String messageTitle = "Log Out";
+        String confirmationMessage = "Are you sure you want to logout?";
+
+        MessageBoxButtons btnType = MessageBoxButtons.YesNo;
 
         private void Form2_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void welcomeText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result1 = MessageBox.Show(confirmationMessage, messageTitle, btnType, MessageBoxIcon.Question);
+            if (result1 == DialogResult.Yes)
+            {
+                Form loginUI = new Form1();
+                loginUI.Show();
+                this.Hide();
+            }
         }
     }
 }
