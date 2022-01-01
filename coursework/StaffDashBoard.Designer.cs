@@ -62,7 +62,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(146, 416);
+            this.panel1.Size = new System.Drawing.Size(146, 479);
             this.panel1.TabIndex = 2;
             // 
             // logoutButton
@@ -121,14 +121,14 @@
             this.panelShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelShow.Location = new System.Drawing.Point(146, 0);
             this.panelShow.Name = "panelShow";
-            this.panelShow.Size = new System.Drawing.Size(763, 416);
+            this.panelShow.Size = new System.Drawing.Size(837, 479);
             this.panelShow.TabIndex = 3;
             // 
             // StaffDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 416);
+            this.ClientSize = new System.Drawing.Size(983, 479);
             this.Controls.Add(this.panelShow);
             this.Controls.Add(this.panel1);
             this.Name = "StaffDashBoard";

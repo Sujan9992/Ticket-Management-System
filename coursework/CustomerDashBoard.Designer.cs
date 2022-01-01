@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonLoad = new System.Windows.Forms.Button();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.dataGridViewTicket = new System.Windows.Forms.DataGridView();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryText = new System.Windows.Forms.Label();
+            this.totalTimeCOmboBox = new System.Windows.Forms.ComboBox();
+            this.ageComboBox = new System.Windows.Forms.ComboBox();
+            this.ageText = new System.Windows.Forms.Label();
+            this.weekDayCombo = new System.Windows.Forms.ComboBox();
+            this.weekDayTxt = new System.Windows.Forms.Label();
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.buttonTicket = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -38,10 +45,7 @@
             this.dateTimePickerInTime = new System.Windows.Forms.DateTimePicker();
             this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.textBoxTicketRate = new System.Windows.Forms.TextBox();
-            this.textBoxTotalTime = new System.Windows.Forms.TextBox();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.textBoxCustomerName = new System.Windows.Forms.TextBox();
             this.textBoxCustomerID = new System.Windows.Forms.TextBox();
             this.labelTotalAmount = new System.Windows.Forms.Label();
@@ -50,62 +54,153 @@
             this.labelOutTime = new System.Windows.Forms.Label();
             this.labelInTime = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
-            this.labelCategory = new System.Windows.Forms.Label();
-            this.labelAddress = new System.Windows.Forms.Label();
             this.labelCustomerName = new System.Windows.Forms.Label();
             this.labelCustomerID = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.panel1.SuspendLayout();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // mainPanel
             // 
-            this.panel1.Controls.Add(this.buttonLoad);
-            this.panel1.Controls.Add(this.buttonCalculate);
-            this.panel1.Controls.Add(this.buttonTicket);
-            this.panel1.Controls.Add(this.buttonSave);
-            this.panel1.Controls.Add(this.dataGridViewCustomer);
-            this.panel1.Controls.Add(this.dateTimePickerOutTime);
-            this.panel1.Controls.Add(this.dateTimePickerInTime);
-            this.panel1.Controls.Add(this.textBoxTotalAmount);
-            this.panel1.Controls.Add(this.textBoxTicketRate);
-            this.panel1.Controls.Add(this.textBoxTotalTime);
-            this.panel1.Controls.Add(this.dateTimePickerDate);
-            this.panel1.Controls.Add(this.comboBoxCategory);
-            this.panel1.Controls.Add(this.textBoxAddress);
-            this.panel1.Controls.Add(this.textBoxCustomerName);
-            this.panel1.Controls.Add(this.textBoxCustomerID);
-            this.panel1.Controls.Add(this.labelTotalAmount);
-            this.panel1.Controls.Add(this.labelTicketRate);
-            this.panel1.Controls.Add(this.labelTotalTime);
-            this.panel1.Controls.Add(this.labelOutTime);
-            this.panel1.Controls.Add(this.labelInTime);
-            this.panel1.Controls.Add(this.labelDate);
-            this.panel1.Controls.Add(this.labelCategory);
-            this.panel1.Controls.Add(this.labelAddress);
-            this.panel1.Controls.Add(this.labelCustomerName);
-            this.panel1.Controls.Add(this.labelCustomerID);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(891, 381);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.mainPanel.Controls.Add(this.textBox1);
+            this.mainPanel.Controls.Add(this.dataGridViewTicket);
+            this.mainPanel.Controls.Add(this.categoryComboBox);
+            this.mainPanel.Controls.Add(this.categoryText);
+            this.mainPanel.Controls.Add(this.totalTimeCOmboBox);
+            this.mainPanel.Controls.Add(this.ageComboBox);
+            this.mainPanel.Controls.Add(this.ageText);
+            this.mainPanel.Controls.Add(this.weekDayCombo);
+            this.mainPanel.Controls.Add(this.weekDayTxt);
+            this.mainPanel.Controls.Add(this.buttonCalculate);
+            this.mainPanel.Controls.Add(this.buttonTicket);
+            this.mainPanel.Controls.Add(this.buttonSave);
+            this.mainPanel.Controls.Add(this.dataGridViewCustomer);
+            this.mainPanel.Controls.Add(this.dateTimePickerOutTime);
+            this.mainPanel.Controls.Add(this.dateTimePickerInTime);
+            this.mainPanel.Controls.Add(this.textBoxTotalAmount);
+            this.mainPanel.Controls.Add(this.textBoxTicketRate);
+            this.mainPanel.Controls.Add(this.dateTimePickerDate);
+            this.mainPanel.Controls.Add(this.textBoxCustomerName);
+            this.mainPanel.Controls.Add(this.textBoxCustomerID);
+            this.mainPanel.Controls.Add(this.labelTotalAmount);
+            this.mainPanel.Controls.Add(this.labelTicketRate);
+            this.mainPanel.Controls.Add(this.labelTotalTime);
+            this.mainPanel.Controls.Add(this.labelOutTime);
+            this.mainPanel.Controls.Add(this.labelInTime);
+            this.mainPanel.Controls.Add(this.labelDate);
+            this.mainPanel.Controls.Add(this.labelCustomerName);
+            this.mainPanel.Controls.Add(this.labelCustomerID);
+            this.mainPanel.Location = new System.Drawing.Point(3, 3);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(891, 526);
+            this.mainPanel.TabIndex = 0;
+            this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // buttonLoad
+            // dataGridViewTicket
             // 
-            this.buttonLoad.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.buttonLoad.FlatAppearance.BorderSize = 0;
-            this.buttonLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLoad.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.buttonLoad.Location = new System.Drawing.Point(422, 301);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(119, 29);
-            this.buttonLoad.TabIndex = 25;
-            this.buttonLoad.Text = "Export";
-            this.buttonLoad.UseVisualStyleBackColor = false;
+            this.dataGridViewTicket.AllowUserToAddRows = false;
+            this.dataGridViewTicket.AllowUserToDeleteRows = false;
+            this.dataGridViewTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTicket.Location = new System.Drawing.Point(278, 324);
+            this.dataGridViewTicket.Name = "dataGridViewTicket";
+            this.dataGridViewTicket.ReadOnly = true;
+            this.dataGridViewTicket.Size = new System.Drawing.Size(524, 135);
+            this.dataGridViewTicket.TabIndex = 36;
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Items.AddRange(new object[] {
+            "None",
+            "Group of 5",
+            "Group of 10",
+            "Group of 15"});
+            this.categoryComboBox.Location = new System.Drawing.Point(149, 238);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.categoryComboBox.TabIndex = 35;
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
+            // 
+            // categoryText
+            // 
+            this.categoryText.AutoSize = true;
+            this.categoryText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.categoryText.Location = new System.Drawing.Point(50, 238);
+            this.categoryText.Name = "categoryText";
+            this.categoryText.Size = new System.Drawing.Size(90, 19);
+            this.categoryText.TabIndex = 34;
+            this.categoryText.Text = "Category:";
+            // 
+            // totalTimeCOmboBox
+            // 
+            this.totalTimeCOmboBox.FormattingEnabled = true;
+            this.totalTimeCOmboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "Whole Day"});
+            this.totalTimeCOmboBox.Location = new System.Drawing.Point(149, 182);
+            this.totalTimeCOmboBox.Name = "totalTimeCOmboBox";
+            this.totalTimeCOmboBox.Size = new System.Drawing.Size(121, 21);
+            this.totalTimeCOmboBox.TabIndex = 33;
+            // 
+            // ageComboBox
+            // 
+            this.ageComboBox.FormattingEnabled = true;
+            this.ageComboBox.Items.AddRange(new object[] {
+            "None",
+            "Child",
+            "Adult"});
+            this.ageComboBox.Location = new System.Drawing.Point(149, 211);
+            this.ageComboBox.Name = "ageComboBox";
+            this.ageComboBox.Size = new System.Drawing.Size(121, 21);
+            this.ageComboBox.TabIndex = 32;
+            this.ageComboBox.SelectedIndexChanged += new System.EventHandler(this.ageComboBox_SelectedIndexChanged);
+            // 
+            // ageText
+            // 
+            this.ageText.AutoSize = true;
+            this.ageText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ageText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.ageText.Location = new System.Drawing.Point(41, 211);
+            this.ageText.Name = "ageText";
+            this.ageText.Size = new System.Drawing.Size(99, 19);
+            this.ageText.TabIndex = 31;
+            this.ageText.Text = "Age Group:";
+            // 
+            // weekDayCombo
+            // 
+            this.weekDayCombo.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weekDayCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.weekDayCombo.FormattingEnabled = true;
+            this.weekDayCombo.Items.AddRange(new object[] {
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"});
+            this.weekDayCombo.Location = new System.Drawing.Point(149, 103);
+            this.weekDayCombo.Name = "weekDayCombo";
+            this.weekDayCombo.Size = new System.Drawing.Size(121, 21);
+            this.weekDayCombo.TabIndex = 27;
+            // 
+            // weekDayTxt
+            // 
+            this.weekDayTxt.AutoSize = true;
+            this.weekDayTxt.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weekDayTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.weekDayTxt.Location = new System.Drawing.Point(50, 101);
+            this.weekDayTxt.Name = "weekDayTxt";
+            this.weekDayTxt.Size = new System.Drawing.Size(90, 19);
+            this.weekDayTxt.TabIndex = 26;
+            this.weekDayTxt.Text = "Week Day:";
             // 
             // buttonCalculate
             // 
@@ -114,7 +209,7 @@
             this.buttonCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCalculate.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCalculate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.buttonCalculate.Location = new System.Drawing.Point(149, 302);
+            this.buttonCalculate.Location = new System.Drawing.Point(149, 321);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(121, 28);
             this.buttonCalculate.TabIndex = 24;
@@ -129,12 +224,13 @@
             this.buttonTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTicket.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.buttonTicket.Location = new System.Drawing.Point(547, 301);
+            this.buttonTicket.Location = new System.Drawing.Point(631, 289);
             this.buttonTicket.Name = "buttonTicket";
-            this.buttonTicket.Size = new System.Drawing.Size(197, 29);
+            this.buttonTicket.Size = new System.Drawing.Size(171, 29);
             this.buttonTicket.TabIndex = 23;
             this.buttonTicket.Text = "View Ticket Rate";
             this.buttonTicket.UseVisualStyleBackColor = false;
+            this.buttonTicket.Click += new System.EventHandler(this.buttonTicket_Click);
             // 
             // buttonSave
             // 
@@ -143,9 +239,9 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.buttonSave.Location = new System.Drawing.Point(278, 301);
+            this.buttonSave.Location = new System.Drawing.Point(519, 290);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(138, 29);
+            this.buttonSave.Size = new System.Drawing.Size(96, 29);
             this.buttonSave.TabIndex = 22;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -156,64 +252,57 @@
             this.dataGridViewCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCustomer.Location = new System.Drawing.Point(278, 23);
             this.dataGridViewCustomer.Name = "dataGridViewCustomer";
-            this.dataGridViewCustomer.Size = new System.Drawing.Size(466, 263);
+            this.dataGridViewCustomer.Size = new System.Drawing.Size(524, 260);
             this.dataGridViewCustomer.TabIndex = 20;
             // 
             // dateTimePickerOutTime
             // 
             this.dateTimePickerOutTime.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
             this.dateTimePickerOutTime.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.dateTimePickerOutTime.CustomFormat = "hh:ss tt";
+            this.dateTimePickerOutTime.CustomFormat = " ";
             this.dateTimePickerOutTime.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerOutTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerOutTime.Location = new System.Drawing.Point(149, 179);
+            this.dateTimePickerOutTime.Location = new System.Drawing.Point(149, 156);
             this.dateTimePickerOutTime.Name = "dateTimePickerOutTime";
             this.dateTimePickerOutTime.ShowUpDown = true;
             this.dateTimePickerOutTime.Size = new System.Drawing.Size(121, 20);
             this.dateTimePickerOutTime.TabIndex = 19;
+            this.dateTimePickerOutTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTimePickerOutTime_MouseDown);
             // 
             // dateTimePickerInTime
             // 
             this.dateTimePickerInTime.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
             this.dateTimePickerInTime.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.dateTimePickerInTime.CustomFormat = "hh:ss tt";
+            this.dateTimePickerInTime.CustomFormat = " ";
             this.dateTimePickerInTime.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerInTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerInTime.Location = new System.Drawing.Point(149, 153);
+            this.dateTimePickerInTime.Location = new System.Drawing.Point(149, 130);
             this.dateTimePickerInTime.Name = "dateTimePickerInTime";
             this.dateTimePickerInTime.ShowUpDown = true;
             this.dateTimePickerInTime.Size = new System.Drawing.Size(121, 20);
             this.dateTimePickerInTime.TabIndex = 18;
+            this.dateTimePickerInTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTimePickerInTime_MouseDown);
             // 
             // textBoxTotalAmount
             // 
             this.textBoxTotalAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.textBoxTotalAmount.Location = new System.Drawing.Point(149, 260);
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(149, 292);
             this.textBoxTotalAmount.Multiline = true;
             this.textBoxTotalAmount.Name = "textBoxTotalAmount";
-            this.textBoxTotalAmount.Size = new System.Drawing.Size(121, 26);
+            this.textBoxTotalAmount.ReadOnly = true;
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(121, 22);
             this.textBoxTotalAmount.TabIndex = 17;
             // 
             // textBoxTicketRate
             // 
             this.textBoxTicketRate.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTicketRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.textBoxTicketRate.Location = new System.Drawing.Point(149, 231);
+            this.textBoxTicketRate.Location = new System.Drawing.Point(149, 266);
             this.textBoxTicketRate.Multiline = true;
             this.textBoxTicketRate.Name = "textBoxTicketRate";
             this.textBoxTicketRate.Size = new System.Drawing.Size(121, 20);
             this.textBoxTicketRate.TabIndex = 16;
-            // 
-            // textBoxTotalTime
-            // 
-            this.textBoxTotalTime.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.textBoxTotalTime.Location = new System.Drawing.Point(149, 205);
-            this.textBoxTotalTime.Multiline = true;
-            this.textBoxTotalTime.Name = "textBoxTotalTime";
-            this.textBoxTotalTime.Size = new System.Drawing.Size(121, 20);
-            this.textBoxTotalTime.TabIndex = 15;
             // 
             // dateTimePickerDate
             // 
@@ -223,31 +312,11 @@
             this.dateTimePickerDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePickerDate.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerDate.Location = new System.Drawing.Point(149, 127);
+            this.dateTimePickerDate.Location = new System.Drawing.Point(149, 77);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
             this.dateTimePickerDate.ShowUpDown = true;
             this.dateTimePickerDate.Size = new System.Drawing.Size(121, 20);
             this.dateTimePickerDate.TabIndex = 14;
-            // 
-            // comboBoxCategory
-            // 
-            this.comboBoxCategory.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(149, 100);
-            this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCategory.TabIndex = 13;
-            // 
-            // textBoxAddress
-            // 
-            this.textBoxAddress.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.textBoxAddress.Location = new System.Drawing.Point(149, 74);
-            this.textBoxAddress.Multiline = true;
-            this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(121, 20);
-            this.textBoxAddress.TabIndex = 12;
             // 
             // textBoxCustomerName
             // 
@@ -275,7 +344,7 @@
             this.labelTotalAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTotalAmount.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelTotalAmount.Location = new System.Drawing.Point(14, 263);
+            this.labelTotalAmount.Location = new System.Drawing.Point(14, 295);
             this.labelTotalAmount.Name = "labelTotalAmount";
             this.labelTotalAmount.Size = new System.Drawing.Size(126, 19);
             this.labelTotalAmount.TabIndex = 9;
@@ -287,7 +356,7 @@
             this.labelTicketRate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTicketRate.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTicketRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelTicketRate.Location = new System.Drawing.Point(23, 232);
+            this.labelTicketRate.Location = new System.Drawing.Point(23, 264);
             this.labelTicketRate.Name = "labelTicketRate";
             this.labelTicketRate.Size = new System.Drawing.Size(117, 19);
             this.labelTicketRate.TabIndex = 8;
@@ -299,11 +368,11 @@
             this.labelTotalTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTotalTime.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelTotalTime.Location = new System.Drawing.Point(32, 206);
+            this.labelTotalTime.Location = new System.Drawing.Point(41, 182);
             this.labelTotalTime.Name = "labelTotalTime";
-            this.labelTotalTime.Size = new System.Drawing.Size(108, 19);
+            this.labelTotalTime.Size = new System.Drawing.Size(99, 19);
             this.labelTotalTime.TabIndex = 7;
-            this.labelTotalTime.Text = "Total Time:";
+            this.labelTotalTime.Text = "Time(Hrs):";
             // 
             // labelOutTime
             // 
@@ -311,7 +380,7 @@
             this.labelOutTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelOutTime.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOutTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelOutTime.Location = new System.Drawing.Point(50, 180);
+            this.labelOutTime.Location = new System.Drawing.Point(50, 157);
             this.labelOutTime.Name = "labelOutTime";
             this.labelOutTime.Size = new System.Drawing.Size(90, 19);
             this.labelOutTime.TabIndex = 6;
@@ -323,7 +392,7 @@
             this.labelInTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelInTime.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelInTime.Location = new System.Drawing.Point(59, 154);
+            this.labelInTime.Location = new System.Drawing.Point(59, 130);
             this.labelInTime.Name = "labelInTime";
             this.labelInTime.Size = new System.Drawing.Size(81, 19);
             this.labelInTime.TabIndex = 5;
@@ -335,35 +404,11 @@
             this.labelDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelDate.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelDate.Location = new System.Drawing.Point(86, 128);
+            this.labelDate.Location = new System.Drawing.Point(86, 78);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(54, 19);
             this.labelDate.TabIndex = 4;
             this.labelDate.Text = "Date:";
-            // 
-            // labelCategory
-            // 
-            this.labelCategory.AutoSize = true;
-            this.labelCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelCategory.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelCategory.Location = new System.Drawing.Point(50, 100);
-            this.labelCategory.Name = "labelCategory";
-            this.labelCategory.Size = new System.Drawing.Size(90, 19);
-            this.labelCategory.TabIndex = 3;
-            this.labelCategory.Text = "Category:";
-            // 
-            // labelAddress
-            // 
-            this.labelAddress.AutoSize = true;
-            this.labelAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelAddress.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.labelAddress.Location = new System.Drawing.Point(59, 75);
-            this.labelAddress.Name = "labelAddress";
-            this.labelAddress.Size = new System.Drawing.Size(81, 19);
-            this.labelAddress.TabIndex = 2;
-            this.labelAddress.Text = "Address:";
             // 
             // labelCustomerName
             // 
@@ -389,17 +434,31 @@
             this.labelCustomerID.TabIndex = 0;
             this.labelCustomerID.Text = "Customer Id:";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.textBox1.Location = new System.Drawing.Point(278, 292);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(235, 20);
+            this.textBox1.TabIndex = 37;
+            // 
             // CustomerDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 381);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(895, 537);
+            this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomerDashBoard";
             this.Text = "CustomerDashBoard";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).EndInit();
             this.ResumeLayout(false);
 
@@ -407,7 +466,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Label labelCustomerID;
         private System.Windows.Forms.Label labelTotalAmount;
         private System.Windows.Forms.Label labelTicketRate;
@@ -415,15 +474,10 @@
         private System.Windows.Forms.Label labelOutTime;
         private System.Windows.Forms.Label labelInTime;
         private System.Windows.Forms.Label labelDate;
-        private System.Windows.Forms.Label labelCategory;
-        private System.Windows.Forms.Label labelAddress;
         private System.Windows.Forms.Label labelCustomerName;
         private System.Windows.Forms.TextBox textBoxTotalAmount;
         private System.Windows.Forms.TextBox textBoxTicketRate;
-        private System.Windows.Forms.TextBox textBoxTotalTime;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
-        private System.Windows.Forms.ComboBox comboBoxCategory;
-        private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.TextBox textBoxCustomerName;
         private System.Windows.Forms.TextBox textBoxCustomerID;
         private System.Windows.Forms.DateTimePicker dateTimePickerInTime;
@@ -432,7 +486,15 @@
         private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.Button buttonTicket;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonLoad;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label weekDayTxt;
+        private System.Windows.Forms.ComboBox weekDayCombo;
+        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.Label categoryText;
+        private System.Windows.Forms.ComboBox totalTimeCOmboBox;
+        private System.Windows.Forms.ComboBox ageComboBox;
+        private System.Windows.Forms.Label ageText;
+        private System.Windows.Forms.DataGridView dataGridViewTicket;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
