@@ -54,6 +54,7 @@
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelCustomerName = new System.Windows.Forms.Label();
             this.labelCustomerID = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
             this.SuspendLayout();
@@ -432,5 +433,6 @@
         private System.Windows.Forms.Button buttonTicket;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonLoad;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.username = new System.Windows.Forms.Label();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ticketViewButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.ticketViewButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,30 +62,6 @@
             this.menuPanel.Size = new System.Drawing.Size(200, 448);
             this.menuPanel.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(45, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(102, 85);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // ticketViewButton
-            // 
-            this.ticketViewButton.FlatAppearance.BorderSize = 0;
-            this.ticketViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ticketViewButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ticketViewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.ticketViewButton.Location = new System.Drawing.Point(11, 171);
-            this.ticketViewButton.Name = "ticketViewButton";
-            this.ticketViewButton.Size = new System.Drawing.Size(167, 30);
-            this.ticketViewButton.TabIndex = 3;
-            this.ticketViewButton.Text = "Ticket";
-            this.ticketViewButton.UseVisualStyleBackColor = true;
-            // 
             // logoutButton
             // 
             this.logoutButton.FlatAppearance.BorderSize = 0;
@@ -100,19 +76,44 @@
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
+            // ticketViewButton
+            // 
+            this.ticketViewButton.FlatAppearance.BorderSize = 0;
+            this.ticketViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ticketViewButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ticketViewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.ticketViewButton.Location = new System.Drawing.Point(11, 171);
+            this.ticketViewButton.Name = "ticketViewButton";
+            this.ticketViewButton.Size = new System.Drawing.Size(167, 30);
+            this.ticketViewButton.TabIndex = 3;
+            this.ticketViewButton.Text = "Ticket";
+            this.ticketViewButton.UseVisualStyleBackColor = true;
+            this.ticketViewButton.Click += new System.EventHandler(this.ticketViewButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(45, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(102, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // mainPanel
             // 
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mainPanel.Location = new System.Drawing.Point(199, 0);
+            this.mainPanel.Location = new System.Drawing.Point(201, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(601, 450);
+            this.mainPanel.Size = new System.Drawing.Size(693, 450);
             this.mainPanel.TabIndex = 3;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(894, 450);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.menuPanel);
             this.Name = "AdminDashboard";

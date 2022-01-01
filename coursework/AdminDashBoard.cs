@@ -43,5 +43,14 @@ namespace coursework
                 this.Hide();
             }
         }
+
+        private void ticketViewButton_Click(object sender, EventArgs e)
+        {
+            TicketDashboard ticket = new TicketDashboard();
+            mainPanel.Controls.Clear();
+            ticket.TopLevel = false;
+            mainPanel.Controls.Add(ticket);
+            ticket.Show();
+        }
     }
 }
