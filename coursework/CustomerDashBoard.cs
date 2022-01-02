@@ -22,35 +22,32 @@ namespace coursework
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
             int totalAmount;
-            /*int total;*/
+            int total;
             String totalTime;
-            int category;
             int rate;
-            String resultString;
-            rate = Int32.Parse(textBoxTicketRate.Text);
-            resultString = Regex.Match(categoryComboBox.Text, @"\d+").Value;
-            
 
-           /* if (totalTimeCOmboBox.Text == "Whole Day")
+            try
             {
-                total = 6;
-            }*/
-            /*else { */
+                String resultString;
+                rate = Int32.Parse(textBoxTicketRate.Text);
+                resultString = Regex.Match(totalComboBox.Text, @"\d+").Value;
                 totalTime = totalTimeCOmboBox.Text;
-               /* total = Int32.Parse(totalTime.ToString());*/
-            /*}*/
-            if (ageComboBox.Text == "None" && categoryComboBox.Text == "None")
-            {
-                MessageBox.Show("Please choose a category.");
-                categoryComboBox.Focus();
+
+
+                if (categoryComboBox.Text == "Child" || categoryComboBox.Text == "Adult")
+                {
+                    total = Int32.Parse(resultString);
+                    totalAmount = rate * total;
+                    textBoxTotalAmount.Text = totalAmount.ToString();
+                }
+                else
+                {
+                    totalAmount = rate;
+                    textBoxTotalAmount.Text = totalAmount.ToString();
+                }
             }
-            else if (ageComboBox.Text == "Child" || ageComboBox.Text == "Adult") {
-                category = Int32.Parse(resultString);
-                totalAmount = rate * category;
-                textBoxTotalAmount.Text = totalAmount.ToString();
-            } else if (ageComboBox.Text == "None") {
-                totalAmount = rate;
-                textBoxTotalAmount.Text = totalAmount.ToString();
+            catch (Exception ex) {
+                MessageBox.Show("Error Found.");
             }
             
 
@@ -105,10 +102,10 @@ namespace coursework
                 MessageBox.Show("Enter the total amount.");
                 textBoxTotalAmount.Focus();
             }
-            else if (ageComboBox.Text == "")
+            else if (totalComboBox.Text == "")
             {
                 MessageBox.Show("Enter the age.");
-                ageComboBox.Focus();
+                totalComboBox.Focus();
             }
             else if (totalTimeCOmboBox.Text == "")
             {
@@ -124,18 +121,30 @@ namespace coursework
                     {
                         string HeaderText = "Customer ID" + "," + "Name" + "," + "Date"
                             + "," + "Day" + "," + "In Time" + "," + "Out Time" + "," + "Total Time" + "," +
-                            "Age Group" + "," + "Category" + "," + "Ticket Rate" + "," + "Total Amount" +
+                            "Category" + "," + "Total People" + "," + "Ticket Rate" + "," + "Total Amount" +
                             Environment.NewLine;
                         File.WriteAllText(FileName, HeaderText);
                     }
                     string clientDetails = textBoxCustomerID.Text + "," + textBoxCustomerName.Text + "," +
                         dateTimePickerDate.Text + "," + weekDayCombo.Text + "," + dateTimePickerInTime.Text + "," +
-                        dateTimePickerOutTime.Text + "," + totalTimeCOmboBox.Text + "," + ageComboBox.Text + "," +
-                        categoryComboBox.Text + "," + textBoxTicketRate.Text + "," + textBoxTotalAmount.Text +
+                        dateTimePickerOutTime.Text + "," + totalTimeCOmboBox.Text + "," + categoryComboBox.Text + "," +
+                        totalComboBox.Text + "," + textBoxTicketRate.Text + "," + textBoxTotalAmount.Text +
                         "\n";
                     File.AppendAllText(FileName, clientDetails);
                     MessageBox.Show("Data Inserted");
                     BindData(FileName);
+
+                categoryComboBox.Text = "";
+                totalComboBox.Text = "";
+                textBoxCustomerID.Text = "";
+                textBoxCustomerName.Text = "";
+                dateTimePickerDate.Text = "";
+                weekDayCombo.Text = "";
+                dateTimePickerInTime.Text = "";
+                dateTimePickerOutTime.Text = "";
+                totalTimeCOmboBox.Text = "";
+                textBoxTicketRate.Text = "";
+                textBoxTotalAmount.Text = "";
                 
             }
 

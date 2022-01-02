@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewTicket = new System.Windows.Forms.DataGridView();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.categoryText = new System.Windows.Forms.Label();
             this.totalTimeCOmboBox = new System.Windows.Forms.ComboBox();
-            this.ageComboBox = new System.Windows.Forms.ComboBox();
-            this.ageText = new System.Windows.Forms.Label();
             this.weekDayCombo = new System.Windows.Forms.ComboBox();
             this.weekDayTxt = new System.Windows.Forms.Label();
             this.buttonCalculate = new System.Windows.Forms.Button();
@@ -57,7 +56,8 @@
             this.labelCustomerName = new System.Windows.Forms.Label();
             this.labelCustomerID = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.totalText = new System.Windows.Forms.Label();
+            this.totalComboBox = new System.Windows.Forms.ComboBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
@@ -65,13 +65,13 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.totalComboBox);
+            this.mainPanel.Controls.Add(this.totalText);
             this.mainPanel.Controls.Add(this.textBox1);
             this.mainPanel.Controls.Add(this.dataGridViewTicket);
             this.mainPanel.Controls.Add(this.categoryComboBox);
             this.mainPanel.Controls.Add(this.categoryText);
             this.mainPanel.Controls.Add(this.totalTimeCOmboBox);
-            this.mainPanel.Controls.Add(this.ageComboBox);
-            this.mainPanel.Controls.Add(this.ageText);
             this.mainPanel.Controls.Add(this.weekDayCombo);
             this.mainPanel.Controls.Add(this.weekDayTxt);
             this.mainPanel.Controls.Add(this.buttonCalculate);
@@ -99,6 +99,15 @@
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.textBox1.Location = new System.Drawing.Point(278, 292);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(235, 20);
+            this.textBox1.TabIndex = 37;
+            // 
             // dataGridViewTicket
             // 
             this.dataGridViewTicket.AllowUserToAddRows = false;
@@ -114,11 +123,10 @@
             // 
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Items.AddRange(new object[] {
-            "None",
-            "Group of 5",
-            "Group of 10",
-            "Group of 15"});
-            this.categoryComboBox.Location = new System.Drawing.Point(149, 238);
+            "Child",
+            "Adult",
+            "Group"});
+            this.categoryComboBox.Location = new System.Drawing.Point(149, 213);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.categoryComboBox.TabIndex = 35;
@@ -129,7 +137,7 @@
             this.categoryText.AutoSize = true;
             this.categoryText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.categoryText.Location = new System.Drawing.Point(50, 238);
+            this.categoryText.Location = new System.Drawing.Point(50, 212);
             this.categoryText.Name = "categoryText";
             this.categoryText.Size = new System.Drawing.Size(90, 19);
             this.categoryText.TabIndex = 34;
@@ -148,30 +156,6 @@
             this.totalTimeCOmboBox.Name = "totalTimeCOmboBox";
             this.totalTimeCOmboBox.Size = new System.Drawing.Size(121, 21);
             this.totalTimeCOmboBox.TabIndex = 33;
-            // 
-            // ageComboBox
-            // 
-            this.ageComboBox.FormattingEnabled = true;
-            this.ageComboBox.Items.AddRange(new object[] {
-            "None",
-            "Child",
-            "Adult"});
-            this.ageComboBox.Location = new System.Drawing.Point(149, 211);
-            this.ageComboBox.Name = "ageComboBox";
-            this.ageComboBox.Size = new System.Drawing.Size(121, 21);
-            this.ageComboBox.TabIndex = 32;
-            this.ageComboBox.SelectedIndexChanged += new System.EventHandler(this.ageComboBox_SelectedIndexChanged);
-            // 
-            // ageText
-            // 
-            this.ageText.AutoSize = true;
-            this.ageText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.ageText.Location = new System.Drawing.Point(41, 211);
-            this.ageText.Name = "ageText";
-            this.ageText.Size = new System.Drawing.Size(99, 19);
-            this.ageText.TabIndex = 31;
-            this.ageText.Text = "Age Group:";
             // 
             // weekDayCombo
             // 
@@ -438,14 +422,28 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // textBox1
+            // totalText
             // 
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.textBox1.Location = new System.Drawing.Point(278, 292);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 20);
-            this.textBox1.TabIndex = 37;
+            this.totalText.AutoSize = true;
+            this.totalText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.totalText.Location = new System.Drawing.Point(77, 238);
+            this.totalText.Name = "totalText";
+            this.totalText.Size = new System.Drawing.Size(63, 19);
+            this.totalText.TabIndex = 38;
+            this.totalText.Text = "Total:";
+            // 
+            // totalComboBox
+            // 
+            this.totalComboBox.FormattingEnabled = true;
+            this.totalComboBox.Items.AddRange(new object[] {
+            "Group of 5",
+            "Group of 10",
+            "Group of 15"});
+            this.totalComboBox.Location = new System.Drawing.Point(149, 239);
+            this.totalComboBox.Name = "totalComboBox";
+            this.totalComboBox.Size = new System.Drawing.Size(121, 21);
+            this.totalComboBox.TabIndex = 39;
             // 
             // CustomerDashBoard
             // 
@@ -491,10 +489,10 @@
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Label categoryText;
         private System.Windows.Forms.ComboBox totalTimeCOmboBox;
-        private System.Windows.Forms.ComboBox ageComboBox;
-        private System.Windows.Forms.Label ageText;
         private System.Windows.Forms.DataGridView dataGridViewTicket;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox totalComboBox;
+        private System.Windows.Forms.Label totalText;
     }
 }
