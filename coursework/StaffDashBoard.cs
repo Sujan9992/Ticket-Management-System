@@ -47,5 +47,14 @@ namespace coursework
             panelShow.Controls.Add(cs);
             cs.Show();
         }
+
+        private void reportViewButton_Click(object sender, EventArgs e)
+        {
+            ReportDashboard rs = new ReportDashboard();
+            panelShow.Controls.Clear();
+            rs.TopLevel = false;
+            panelShow.Controls.Add(rs);
+            rs.Show();
+        }
     }
 }

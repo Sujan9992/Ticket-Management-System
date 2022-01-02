@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.totalText = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewTicket = new System.Windows.Forms.DataGridView();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
@@ -56,7 +57,6 @@
             this.labelCustomerName = new System.Windows.Forms.Label();
             this.labelCustomerID = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.totalText = new System.Windows.Forms.Label();
             this.totalComboBox = new System.Windows.Forms.ComboBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).BeginInit();
@@ -99,6 +99,17 @@
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // totalText
+            // 
+            this.totalText.AutoSize = true;
+            this.totalText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.totalText.Location = new System.Drawing.Point(77, 238);
+            this.totalText.Name = "totalText";
+            this.totalText.Size = new System.Drawing.Size(63, 19);
+            this.totalText.TabIndex = 38;
+            this.totalText.Text = "Total:";
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,7 +136,9 @@
             this.categoryComboBox.Items.AddRange(new object[] {
             "Child",
             "Adult",
-            "Group"});
+            "Group of 5",
+            "Group of 10",
+            "Group of 15"});
             this.categoryComboBox.Location = new System.Drawing.Point(149, 213);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
@@ -422,24 +435,17 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // totalText
-            // 
-            this.totalText.AutoSize = true;
-            this.totalText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.totalText.Location = new System.Drawing.Point(77, 238);
-            this.totalText.Name = "totalText";
-            this.totalText.Size = new System.Drawing.Size(63, 19);
-            this.totalText.TabIndex = 38;
-            this.totalText.Text = "Total:";
-            // 
             // totalComboBox
             // 
             this.totalComboBox.FormattingEnabled = true;
             this.totalComboBox.Items.AddRange(new object[] {
-            "Group of 5",
-            "Group of 10",
-            "Group of 15"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "10",
+            "15"});
             this.totalComboBox.Location = new System.Drawing.Point(149, 239);
             this.totalComboBox.Name = "totalComboBox";
             this.totalComboBox.Size = new System.Drawing.Size(121, 21);
@@ -492,7 +498,7 @@
         private System.Windows.Forms.DataGridView dataGridViewTicket;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox totalComboBox;
         private System.Windows.Forms.Label totalText;
+        private System.Windows.Forms.ComboBox totalComboBox;
     }
 }

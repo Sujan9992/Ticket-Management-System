@@ -91,6 +91,7 @@
             this.reportViewButton.TabIndex = 4;
             this.reportViewButton.Text = "Report";
             this.reportViewButton.UseVisualStyleBackColor = true;
+            this.reportViewButton.Click += new System.EventHandler(this.reportViewButton_Click);
             // 
             // customerViewButton
             // 

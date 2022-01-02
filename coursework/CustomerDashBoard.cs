@@ -25,18 +25,19 @@ namespace coursework
             int total;
             String totalTime;
             int rate;
+           
 
             try
             {
-                String resultString;
+                /*String resultString;*/
                 rate = Int32.Parse(textBoxTicketRate.Text);
-                resultString = Regex.Match(totalComboBox.Text, @"\d+").Value;
+               /* resultString = Regex.Match(totalComboBox.Text, @"\d+").Value;*/
                 totalTime = totalTimeCOmboBox.Text;
 
 
                 if (categoryComboBox.Text == "Child" || categoryComboBox.Text == "Adult")
                 {
-                    total = Int32.Parse(resultString);
+                    total = Int32.Parse(totalComboBox.Text);
                     totalAmount = rate * total;
                     textBoxTotalAmount.Text = totalAmount.ToString();
                 }
@@ -56,7 +57,9 @@ namespace coursework
 
 
         private void buttonSave_Click(object sender, EventArgs e)
+
         {
+
             if (textBoxCustomerID.Text == "")
             {
                 MessageBox.Show("Enter your Customer ID.");
@@ -115,8 +118,7 @@ namespace coursework
            
             else
             {
-               
-                string FileName = @"D:\customers.csv";
+                    string FileName = @"D:\customers.csv";
                     if (!File.Exists(FileName))
                     {
                         string HeaderText = "Customer ID" + "," + "Name" + "," + "Date"
