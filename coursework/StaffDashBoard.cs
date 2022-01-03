@@ -56,5 +56,16 @@ namespace coursework
             panelShow.Controls.Add(rs);
             rs.Show();
         }
+
+        private void viewChart_Click(object sender, EventArgs e)
+        {
+            ChartDashBoard ch = new ChartDashBoard();
+            panelShow.Controls.Clear();
+            ch.TopLevel = false;
+            panelShow.Controls.Add(ch);
+            ch.Show();
+        }
+
     }
-}
+    }
+

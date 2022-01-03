@@ -65,12 +65,11 @@ namespace coursework
                         else if (dataWords[7].Equals("Group of 15"))
                         {
                             group15 += int.Parse(dataWords[8]);
-                        }
-                     
+                        }                     
                     
                 }
 
-                string filename = "D:/reports.csv";
+                string filename = "D:/daily_reports.csv";
                 if (File.Exists(filename))
                 {
                     string[] reportWords = File.ReadAllLines(filename);
@@ -78,12 +77,12 @@ namespace coursework
                     {
                         if (reportWords.Length != 0)
                         {
-                            string data = "Category," + "Total People," + "Date" + "\nChild (5-12)," + child + "," + dateNow + "\n(Adult >12)," + adult + "," + dateNow + "\n(Group 5)," + group5 + "," + dateNow + "\n(Group 10)," + group10 + "," + dateNow + "\n(Group 15)," + group15 + "," + dateNow;
+                            string data = "Category," + "Total People," + "Date" + "\nChild," + child + "," + dateNow + "\nAdult," + adult + "," + dateNow + "\nGroup of 5," + group5 + "," + dateNow + "\nGroup of 10," + group10 + "," + dateNow + "\nGroup of 15," + group15 + "," + dateNow;
                             sw.WriteLine(data);
                         }
                         else
                         {
-                            string data = "Child (5-12)," + child + "," + dateNow + "\n(Adult >12)," + adult + "," + dateNow + "\n(Group 5)," + group5 + "," + dateNow + "\n(Group 10)," + group10 + "," + dateNow + "\n(Group 15)," + group15 + "," + dateNow;
+                            string data = "Child," + child + "," + dateNow + "\nAdult," + adult + "," + dateNow + "\nGroup of 5," + group5 + "," + dateNow + "\nGroup of 10," + group10 + "," + dateNow + "\nGroup 15," + group15 + "," + dateNow;
                             sw.WriteLine(data);
                         }
                     }
@@ -95,7 +94,7 @@ namespace coursework
 
                     using (StreamWriter sw = new StreamWriter(filename))
                     {
-                        string data = "Category," + "Total People," + "Date" + "\nChild (5-12)," + child + "," + dateNow + "\n(Adult >12)," + adult + "," + dateNow + "\n(Group 5)," + group5 + "," + dateNow + "\n(Group 10)," + group10 + "," + dateNow + "\n(Group 15)," + group15 + "," + dateNow;
+                        string data = "Category," + "Total People," + "Date" + "\nChild," + child + "," + dateNow + "\nAdult," + adult + "," + dateNow + "\nGroup of 5," + group5 + "," + dateNow + "\nGroup of 10," + group10 + "," + dateNow + "\nGroup of 15," + group15 + "," + dateNow;
                         sw.WriteLine(data);
 
                     }
@@ -169,6 +168,39 @@ namespace coursework
             }
 
         }
+        private void BindData2(string filePath)
+        {
+            DataTable dt2 = new DataTable();
+            string[] lines = File.ReadAllLines(filePath);
+            if (lines.Length > 0)
+            {
+                //first line to create header
+                string firstLine = lines[0];
+                string[] headerLabels = firstLine.Split(',');
+                foreach (string headerWord in headerLabels)
+                {
+                    dt2.Columns.Add(new DataColumn(headerWord));
+                }
+                //For Data
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    string[] dataWords = lines[i].Split(',');
+                    DataRow dr = dt2.NewRow();
+                    int columnIndex = 0;
+                    foreach (string headerWord in headerLabels)
+                    {
+                        dr[headerWord] = dataWords[columnIndex++];
+                    }
+                    dt2.Rows.Add(dr);
+                }
+            }
+            if (dt2.Rows.Count > 0)
+            {
+                weeklyGrid.DataSource = dt2;
+            }
+
+        }
+
 
         private void viewWeeklyReport_Click(object sender, EventArgs e)
         {
@@ -238,7 +270,7 @@ namespace coursework
                         }
                         else if (dataWords[3].Equals("Saturday"))
                         {
-                            peopleSaturday += int.Parse(dataWords[10]);
+                            peopleSaturday += int.Parse(dataWords[8]);
                             moneySaturday += double.Parse(dataWords[10]);
                         }
                     }
@@ -275,13 +307,97 @@ namespace coursework
 
                     }
                 }
-                MessageBox.Show("Daily Report created sucessfully.", "Sucess");
+                MessageBox.Show("Weekly Report created sucessfully.", "Sucess");
                 BindData1(filename1);
-            }
-           
+            }          
 
         }
+        private static Weekly[] sort(Weekly[] a)
+        {
+            for (int i = 0; i < a.Length - 1; i++) //to place the element in it's correct spot
+            {
+                int minPos = i;
+                for (int j = i + 1; j < a.Length; j++)
+                { //to go through the unsorted array inorder for us to find the smallest element
+                    if (a[j].TotalIncome < a[minPos].TotalIncome)
+                    {
+                        minPos = j;
+                    }
+                }
+                //swapping elements
+                Weekly temp = a[i];
+                a[i] = a[minPos];
+                a[minPos] = temp;
+            }
+            return a;
+        }
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            
+            string[] lines = File.ReadAllLines("D:/weekly_reports.csv");
+            string filename3 = "D:/soretd.csv";
+            Weekly[] array1 = new Weekly[7];
+            List<Weekly> termsList = new List<Weekly>();
 
-     
+            string sortDay = "";
+            int sortTotalPeople = 0;
+            int sortTotalIncome = 0;
+
+            if (lines.Length > 0)
+            {
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    string[] dataWords = lines[i].Split(',');
+                    termsList.Add(new Weekly(dataWords[0], int.Parse(dataWords[1]), int.Parse(dataWords[2])));
+                }
+            }
+            Weekly[] terms = termsList.ToArray();
+
+            array1 = sort(terms);
+            for (int i = 0; i < array1.Length; i++)
+            {
+                sortDay = array1[i].Day;
+                sortTotalPeople = array1[i].TotalPeople;
+                sortTotalIncome = array1[i].TotalIncome;
+
+                if (File.Exists(filename3))
+                {
+                    string[] reportWords = File.ReadAllLines(filename3);
+                    if (reportWords.Length == 8)
+                    {
+                        using (StreamWriter sw = new StreamWriter(filename3))
+                        {
+                            string data = "Day,Total People,Total Income" + "\n" + sortDay + "," + sortTotalPeople + "," + sortTotalIncome;
+                            sw.WriteLine(data);
+                        }
+
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = new StreamWriter(filename3, append: true))
+                        {
+                            string data = sortDay + "," + sortTotalPeople + "," + sortTotalIncome;
+                            sw.WriteLine(data);
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    var myFile = File.Create(filename3);
+                    myFile.Close();
+
+                    using (StreamWriter sw = new StreamWriter(filename3))
+                    {
+                        string data = "Day,Total People,Total Income" + "\n" + sortDay + "," + sortTotalPeople + "," + sortTotalIncome;
+                        sw.WriteLine(data);
+                    }
+                }
+               
+            }
+            MessageBox.Show("Data sorted sucessfully.", "Sucess");
+            BindData2(filename3);
+        }
     }
 }

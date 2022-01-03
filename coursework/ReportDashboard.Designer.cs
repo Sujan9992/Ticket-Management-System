@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.reportPanel = new System.Windows.Forms.Panel();
+            this.buttonSort = new System.Windows.Forms.Button();
             this.weeklyGrid = new System.Windows.Forms.DataGridView();
             this.dailyGrid = new System.Windows.Forms.DataGridView();
             this.viewWeeklyReport = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             // 
             // reportPanel
             // 
+            this.reportPanel.Controls.Add(this.buttonSort);
             this.reportPanel.Controls.Add(this.weeklyGrid);
             this.reportPanel.Controls.Add(this.dailyGrid);
             this.reportPanel.Controls.Add(this.viewWeeklyReport);
@@ -49,6 +51,16 @@
             this.reportPanel.Name = "reportPanel";
             this.reportPanel.Size = new System.Drawing.Size(834, 449);
             this.reportPanel.TabIndex = 0;
+            // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(566, 269);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(110, 23);
+            this.buttonSort.TabIndex = 8;
+            this.buttonSort.Text = "Sort by Income";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // weeklyGrid
             // 
@@ -121,5 +133,6 @@
         private System.Windows.Forms.Button viewWeeklyReport;
         private System.Windows.Forms.Button viewDailyReport;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button buttonSort;
     }
 }

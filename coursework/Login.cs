@@ -27,13 +27,13 @@ namespace coursework
         MessageBoxButtons okButton = MessageBoxButtons.OK;
 
         Hashtable admin = new Hashtable() {
-                                      {"admin1", "admin1"},
-                                          {"admin2", "admin2"}
+                                      {"Ram", "admin1"},
+                                          {"Shyam", "admin2"}
                                        };
         Hashtable staff = new Hashtable() {
-                                      {"staff1", "staff1"},
-                                          {"staff2", "staff2"},
-                                          {"staff3", "staff3"}
+                                      {"Johnny", "staff1"},
+                                          {"Mark", "staff2"},
+                                          {"Gwen", "staff3"}
                                        };
         private void groupBox1_Enter(object sender, EventArgs e)
         {

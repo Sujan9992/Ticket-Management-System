@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.totalComboBox = new System.Windows.Forms.ComboBox();
             this.totalText = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewTicket = new System.Windows.Forms.DataGridView();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.categoryText = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.labelCustomerName = new System.Windows.Forms.Label();
             this.labelCustomerID = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.totalComboBox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
@@ -99,6 +99,22 @@
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // totalComboBox
+            // 
+            this.totalComboBox.FormattingEnabled = true;
+            this.totalComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "10",
+            "15"});
+            this.totalComboBox.Location = new System.Drawing.Point(149, 239);
+            this.totalComboBox.Name = "totalComboBox";
+            this.totalComboBox.Size = new System.Drawing.Size(121, 21);
+            this.totalComboBox.TabIndex = 39;
+            // 
             // totalText
             // 
             this.totalText.AutoSize = true;
@@ -109,15 +125,6 @@
             this.totalText.Size = new System.Drawing.Size(63, 19);
             this.totalText.TabIndex = 38;
             this.totalText.Text = "Total:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.textBox1.Location = new System.Drawing.Point(278, 292);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 20);
-            this.textBox1.TabIndex = 37;
             // 
             // dataGridViewTicket
             // 
@@ -435,21 +442,14 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // totalComboBox
+            // textBox1
             // 
-            this.totalComboBox.FormattingEnabled = true;
-            this.totalComboBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "10",
-            "15"});
-            this.totalComboBox.Location = new System.Drawing.Point(149, 239);
-            this.totalComboBox.Name = "totalComboBox";
-            this.totalComboBox.Size = new System.Drawing.Size(121, 21);
-            this.totalComboBox.TabIndex = 39;
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.textBox1.Location = new System.Drawing.Point(278, 292);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(235, 20);
+            this.textBox1.TabIndex = 37;
             // 
             // CustomerDashBoard
             // 
@@ -497,8 +497,8 @@
         private System.Windows.Forms.ComboBox totalTimeCOmboBox;
         private System.Windows.Forms.DataGridView dataGridViewTicket;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label totalText;
         private System.Windows.Forms.ComboBox totalComboBox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -35,8 +35,10 @@
             this.ticketViewButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // username
@@ -44,7 +46,7 @@
             this.username.AutoSize = true;
             this.username.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.username.Location = new System.Drawing.Point(54, 108);
+            this.username.Location = new System.Drawing.Point(65, 108);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(82, 24);
             this.username.TabIndex = 1;
@@ -103,11 +105,23 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.welcomeLabel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.mainPanel.Location = new System.Drawing.Point(201, 0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(693, 450);
             this.mainPanel.TabIndex = 3;
+            // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.welcomeLabel.Location = new System.Drawing.Point(169, 206);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(350, 28);
+            this.welcomeLabel.TabIndex = 0;
+            this.welcomeLabel.Text = "Welcome to Admin Dashboard";
             // 
             // AdminDashboard
             // 
@@ -124,6 +138,8 @@
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -135,5 +151,6 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button ticketViewButton;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }

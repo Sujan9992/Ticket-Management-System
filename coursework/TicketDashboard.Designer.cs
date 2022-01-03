@@ -58,7 +58,7 @@
             this.Export.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Export.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.Export.Location = new System.Drawing.Point(488, 179);
+            this.Export.Location = new System.Drawing.Point(585, 179);
             this.Export.Name = "Export";
             this.Export.Size = new System.Drawing.Size(75, 23);
             this.Export.TabIndex = 1;
@@ -72,7 +72,7 @@
             this.import.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.import.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.import.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.import.Location = new System.Drawing.Point(407, 178);
+            this.import.Location = new System.Drawing.Point(516, 178);
             this.import.Name = "import";
             this.import.Size = new System.Drawing.Size(75, 20);
             this.import.TabIndex = 2;
@@ -85,7 +85,7 @@
             this.filenameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
             this.filenameTextBox.Location = new System.Drawing.Point(9, 179);
             this.filenameTextBox.Name = "filenameTextBox";
-            this.filenameTextBox.Size = new System.Drawing.Size(392, 20);
+            this.filenameTextBox.Size = new System.Drawing.Size(501, 20);
             this.filenameTextBox.TabIndex = 1;
             // 
             // dataGridView1

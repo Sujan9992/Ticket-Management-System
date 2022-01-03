@@ -31,13 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDashBoard));
             this.username = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.viewChart = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.reportViewButton = new System.Windows.Forms.Button();
             this.customerViewButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelShow = new System.Windows.Forms.Panel();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelShow.SuspendLayout();
             this.SuspendLayout();
             // 
             // username
@@ -45,7 +48,7 @@
             this.username.AutoSize = true;
             this.username.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.username.Location = new System.Drawing.Point(31, 108);
+            this.username.Location = new System.Drawing.Point(45, 108);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(82, 24);
             this.username.TabIndex = 1;
@@ -54,6 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.viewChart);
             this.panel1.Controls.Add(this.logoutButton);
             this.panel1.Controls.Add(this.reportViewButton);
             this.panel1.Controls.Add(this.customerViewButton);
@@ -65,13 +69,27 @@
             this.panel1.Size = new System.Drawing.Size(146, 479);
             this.panel1.TabIndex = 2;
             // 
+            // viewChart
+            // 
+            this.viewChart.FlatAppearance.BorderSize = 0;
+            this.viewChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewChart.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewChart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.viewChart.Location = new System.Drawing.Point(3, 270);
+            this.viewChart.Name = "viewChart";
+            this.viewChart.Size = new System.Drawing.Size(124, 31);
+            this.viewChart.TabIndex = 6;
+            this.viewChart.Text = "Chart";
+            this.viewChart.UseVisualStyleBackColor = true;
+            this.viewChart.Click += new System.EventHandler(this.viewChart_Click);
+            // 
             // logoutButton
             // 
             this.logoutButton.FlatAppearance.BorderSize = 0;
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
-            this.logoutButton.Location = new System.Drawing.Point(3, 270);
+            this.logoutButton.Location = new System.Drawing.Point(3, 306);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(124, 31);
             this.logoutButton.TabIndex = 5;
@@ -119,11 +137,23 @@
             // 
             // panelShow
             // 
+            this.panelShow.Controls.Add(this.welcomeLabel);
             this.panelShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelShow.Location = new System.Drawing.Point(146, 0);
             this.panelShow.Name = "panelShow";
             this.panelShow.Size = new System.Drawing.Size(837, 479);
             this.panelShow.TabIndex = 3;
+            // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(0)))), ((int)(((byte)(108)))));
+            this.welcomeLabel.Location = new System.Drawing.Point(245, 213);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(350, 28);
+            this.welcomeLabel.TabIndex = 0;
+            this.welcomeLabel.Text = "Welcome to Staff Dashboard";
             // 
             // StaffDashBoard
             // 
@@ -139,6 +169,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelShow.ResumeLayout(false);
+            this.panelShow.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -151,5 +183,7 @@
         private System.Windows.Forms.Button reportViewButton;
         private System.Windows.Forms.Button customerViewButton;
         private System.Windows.Forms.Panel panelShow;
+        private System.Windows.Forms.Button viewChart;
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }

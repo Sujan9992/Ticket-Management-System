@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartDashBoard.Designer.cs">
+      <DependentUpon>ChartDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,7 +77,6 @@
     <Compile Include="ReportDashboard.Designer.cs">
       <DependentUpon>ReportDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sorting.cs" />
     <Compile Include="StaffDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +92,9 @@
       <DependentUpon>TicketDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Weekly.cs" />
+    <EmbeddedResource Include="ChartDashBoard.resx">
+      <DependentUpon>ChartDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerDashBoard.resx">
       <DependentUpon>CustomerDashBoard.cs</DependentUpon>
     </EmbeddedResource>
